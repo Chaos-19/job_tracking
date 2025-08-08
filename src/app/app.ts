@@ -1,9 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
+//RouterOutlet,
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [MatSlideToggleModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
