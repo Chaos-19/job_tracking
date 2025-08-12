@@ -1,0 +1,17 @@
+<div class="container">
+  <h5>Quick Actions</h5>
+  <div class="actions-list">
+    @for(action of quickActions;track action.title){
+    <div
+      class="action"
+      [style.background-color]="action.bg"
+      [style.color]="action.color"
+    >
+      <div class="action-body">
+        <h4>{{ action.title }}</h4>
+        <h5>{{ action.description }}</h5>
+      </div>
+    </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="kanban-container">
+  <div class="board-header">
+    <h1>Job Applications</h1>
+    <button class="add-job-btn" (click)="openAddJobModal()">
+      <i class="fas fa-plus"></i> Add Job
+    </button>
+  </div>
+
+  <div class="board-columns" cdkDropListGroup>
+    @for(column of columns;track column.title){
+    <div class="column">
+      <div class="column-header" [style.borderColor]="column.color">
+        <h2>{{ column.title }}</h2>
+        <span class="job-count">{{ getColumnJobs(column.id).length }}</span>
+      </div>
+
+      <div
+        class="job-list"
+        cdkDropList
+        [cdkDropListData]="getColumnJobs(column.id)"
+        (cdkDropListDropped)="onDrop($event)"
+        [id]="column.id"
+      >
+        @for (job of getColumnJobs(column.id);track job.title){
+        <div class="job-card" cdkDrag [cdkDragData]="job">
+          <div class="job-card-content">
+            <div class="job-type-icon">
+              <i [class]="job.typeIcon"></i>
+            </div>
+            <div class="job-details">
+              <h3 class="job-title">{{ job.title }}</h3>
+              <p class="company-name">{{ job.company }}</p>
+              <div class="job-meta">
+                <span class="location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  {{ job.location }}
+                </span>
+                <span class="date">
+                  <i class="far fa-calendar"></i>
+                  {{ job.applicationDate | date : "MMM d, y" }}
+                </span>
+                <span class="salary">
+                  <i class="fas fa-money-bill-wave"></i>
+                  {{ job.salary }}
+                </span>
+              </div>
+            </div>
+            <div class="job-status">
+              <span
+                class="status-dot"
+                [style.backgroundColor]="column.color"
+              ></span>
+              <button class="options-btn" [matMenuTriggerFor]="menu">
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="editJob(job)">Edit</button>
+                <button mat-menu-item (click)="deleteJob(job)">Delete</button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+        }
+        <div class="add-job-box" (click)="openAddJobModal(column.id)">
+          <i class="fas fa-plus"></i>
+          <span>Add Job</span>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

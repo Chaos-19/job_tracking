@@ -1,0 +1,95 @@
+.dashboard-container {
+  padding: 10px;
+}
+
+.dashboard-main {
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.container-header {
+  padding: 8px 16px;
+  border-radius: 18px;
+  background: #1e3a8a;
+  color: white;
+}
+.status-card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.status-card {
+  min-width: 200px;
+  /* min-width: 280px; */
+  max-width: 400px;
+  padding: 0.9rem;
+}
+.status-card h4 {
+  color: #4b5563;
+  font-weight: 500;
+
+  margin: 0;
+}
+
+.status-card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.status-card-body h2 {
+  font-size: xx-large;
+}
+.status-card-body ng-icon {
+  background: #1e3a8a;
+  color: white;
+  padding: 5px;
+  border-radius: 13px;
+}
+.status-card-foot {
+  color: #4b5563;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 5px;
+}
+
+.inner-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 1530px) {
+  .inner-container > .chart {
+    grid-column: 1 / span 2;
+  }
+
+  .inner-container > .recentactivity {
+    grid-column: 3;
+  }
+}
+
+@media (max-width: 1530px) {
+  .status-card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .inner-container {
+    grid-template-columns: 1fr;
+    border: 2px solid red;
+  }
+}
+
+@media (max-width: 432px) {
+  .status-card-container {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 1249px) {
+  /* .inner-container {
+    grid-template-columns: 1fr;
+  } */
+}

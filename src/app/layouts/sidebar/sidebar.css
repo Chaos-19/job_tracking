@@ -1,0 +1,61 @@
+.sider-header {
+  display: flex;
+  justify-content: start;
+  padding-left: 20px;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.sider-header h1 {
+  font-size: 20px;
+  color: #111827;
+  font: medium;
+}
+
+.sider-header ng-icon {
+  background: #1e3a8a;
+  color: white;
+  padding: 5px;
+  border-radius: 13px;
+}
+
+.sidebar-nav {
+  width: 100%;
+  /*  margin: 0;
+  padding: 0; */
+}
+.sidebar-nav ul {
+  padding-left: 5px;
+}
+
+.sidebar-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* padding: 10px; */
+  text-decoration: none;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  flex: 1;
+  font-size: 14;
+
+  color: #374151;
+  padding: 12px 16px;
+  border-radius: 10px;
+}
+
+.nav-item:hover {
+  background: #eff6ff;
+}
+.nav-item:hover {
+  background: #1e3a8a;
+  color: white;
+  font-weight: 500;
+}

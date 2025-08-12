@@ -1,0 +1,77 @@
+@use "@angular/material" as mat;
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.meanu-bar {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 5px;
+}
+
+@media (min-width: 768px) {
+  .meanu-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 350px) {
+  .notification {
+    display: none;
+  }
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-layout > .left-div {
+  grid-column: 1;
+  /* background-color: var(--mat-sys-surface-container); */
+  color: var(--mat-sys-on-surface);
+}
+
+.main-layout > .right-div {
+  grid-column: 2;
+  height: 100%;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+}
+
+.content {
+  padding: 16px;
+}
+
+@media (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .main-layout > .right-div {
+    grid-column: 1;
+  }
+
+  .main-layout > .left-div {
+    display: none;
+  }
+}

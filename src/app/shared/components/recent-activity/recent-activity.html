@@ -1,0 +1,26 @@
+<div class="recent-activity-container">
+  <div style="display: flex; flex-direction: column; gap: 4px; margin: 0">
+    <h3 style="font-size: 20px; margin: 0; font-weight: 500">
+      Recent Activity
+    </h3>
+    <p style="margin: 0">Your latest job application updates</p>
+  </div>
+  <div class="activity-list">
+    @for(activity of recentActivitysList; track activity.company){
+    <div class="activity-item">
+      <ng-icon name="lucideBuilding2" size="30" class="building-icon" />
+      <div class="top">
+        <div class="head">
+          <h5 style="flex: 1">Senior Frontend Developer</h5>
+          <div matBadge="Interview Scheduled" matBadgePosition="before"></div>
+        </div>
+        <h6>Google</h6>
+        <div class="bottom">
+          <div><ng-icon name="lucideMapPin" size="12" /> Mountain View, CA</div>
+          <div><ng-icon name="lucideCalendar" size="12" />2 hours ago</div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

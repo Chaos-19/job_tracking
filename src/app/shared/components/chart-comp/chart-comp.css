@@ -1,0 +1,18 @@
+.main-container {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.chart-container {
+  max-width: calc(100vw - 70px);
+}
+
+@media (min-width: 1530px) {
+  .chart-container {
+    max-width: 600px;
+  }
+}

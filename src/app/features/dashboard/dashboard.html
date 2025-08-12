@@ -1,0 +1,42 @@
+<div class="dashboard-container">
+  <div class="dashboard-main">
+    <div class="container-header">
+      <h2>Welcome back, John! 👋</h2>
+      <p>You have 3 interviews scheduled this week. Keep up the great work!</p>
+    </div>
+
+    <div class="status-card-container">
+      @for(stat of stats;track stat.title){
+      <mat-card class="status-card" appearance="outlined">
+        <h4>{{ stat.title }}</h4>
+        <div class="status-card-body">
+          <h2>{{ stat.value }}</h2>
+          <ng-icon
+            [name]="stat.icon"
+            size="32"
+            [style.background-color]="stat.color"
+          />
+        </div>
+        <div class="status-card-foot">
+          @if (stat.trend == 'up') {
+          <ng-icon name="lucideTrendingUp" size="28" color="green" />
+          <span style="color: green">{{ stat.change }}</span>
+          }@else{
+          <ng-icon name="lucideTrendingDown" size="28" color="red" />
+          <span style="color: red">{{ stat.change }}</span>
+          } vs last month
+        </div>
+      </mat-card>
+      }
+    </div>
+
+    <div class="inner-container">
+      <app-chart-comp class="chart"></app-chart-comp>
+      <app-recent-activity class="recentactivity"></app-recent-activity>
+    </div>
+
+    <div class="dashboard-footer">
+      <app-quick-actions></app-quick-actions>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,166 @@
+<!-- add-job.component.html -->
+<div class="add-job-container">
+  <!-- Page Header -->
+  <div class="header">
+    <div class="header-content">
+      <ng-icon name="lucideBuilding2" size="24" />
+      <h1 class="header-title">Add New Job Application</h1>
+    </div>
+    <p class="header-description">
+      Track a new opportunity and stay organized in your job search
+    </p>
+  </div>
+
+  <!-- Main Form -->
+  <mat-card class="job-details-card">
+    <mat-card-header>
+      <mat-card-title>Job Details</mat-card-title>
+      <mat-card-subtitle
+        >Fill in the information about your job application</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="jobForm">
+        <div class="grid-container">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Company Name *</mat-label>
+            <input
+              matInput
+              formControlName="company"
+              placeholder="e.g., Google, Microsoft, Startup Inc."
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Position Title *</mat-label>
+            <input
+              matInput
+              formControlName="position"
+              placeholder="e.g., Senior Software Engineer"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="grid-container three-columns">
+          <mat-form-field appearance="outline">
+            <mat-label>Location</mat-label>
+            <mat-icon matPrefix>location_on</mat-icon>
+            <input
+              matInput
+              formControlName="location"
+              placeholder="San Francisco, CA"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Salary Range</mat-label>
+            <mat-icon matPrefix>attach_money</mat-icon>
+            <input
+              matInput
+              formControlName="salary"
+              placeholder="$120k - $150k"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Application Date *</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="applicationDate"
+            />
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="grid-container">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Application Status</mat-label>
+            <mat-select formControlName="status">
+              <mat-option value="applied">Applied</mat-option>
+              <mat-option value="interview">Interview Scheduled</mat-option>
+              <mat-option value="offer">Offer Received</mat-option>
+              <mat-option value="rejected">Rejected</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Job Type</mat-label>
+            <mat-select formControlName="jobType">
+              <mat-option value="full-time">Full-time</mat-option>
+              <mat-option value="part-time">Part-time</mat-option>
+              <mat-option value="contract">Contract</mat-option>
+              <mat-option value="internship">Internship</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="file-upload-section">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Job Description</mat-label>
+            <textarea
+              matInput
+              formControlName="description"
+              placeholder="Paste the job description here or add key requirements..."
+              rows="4"
+            ></textarea>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Notes & Follow-up</mat-label>
+            <textarea
+              matInput
+              formControlName="notes"
+              placeholder="Add any notes, contacts, or follow-up reminders..."
+              rows="4"
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Document Upload Section -->
+  <mat-card class="documents-card">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>description</mat-icon>
+        Documents
+      </mat-card-title>
+      <mat-card-subtitle
+        >Upload relevant documents for this application</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <div class="upload-grid">
+        <!-- Resume Upload -->
+        <div class="upload-box" (click)="triggerFileInput()">
+          <mat-icon class="upload-icon">cloud_upload</mat-icon>
+          <p class="upload-title">Upload Resume</p>
+          <p class="upload-description">PDF, DOC up to 10MB</p>
+        </div>
+
+        <!-- Cover Letter Upload -->
+        <div class="upload-box" (click)="triggerFileInput()">
+          <mat-icon class="upload-icon">cloud_upload</mat-icon>
+          <p class="upload-title">Upload Cover Letter</p>
+          <p class="upload-description">PDF, DOC up to 10MB</p>
+          <input
+            #fileInput
+            type="file"
+            (change)="onFileSelected($event)"
+            style="display: none"
+          />
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <button mat-stroked-button (click)="onSaveAsDraft()">Save as Draft</button>
+    <button mat-raised-button color="accent" (click)="onAddApplication()">
+      Add Job Application
+    </button>
+  </div>
+</div>

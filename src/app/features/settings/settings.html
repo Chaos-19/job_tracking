@@ -1,0 +1,178 @@
+<div class="settings-container">
+  <header class="settings-header">
+    <div style="display: flex; align-items: center; gap: 10px">
+      <mat-icon class="header-icon">settings</mat-icon>
+      <h1>Account Settings</h1>
+    </div>
+    <p>Customize your profile and preferences</p>
+  </header>
+
+  <form [formGroup]="settingsForm" (ngSubmit)="saveChanges()">
+    <!-- Profile Information Section -->
+    <mat-card class="settings-card" formGroupName="profile">
+      <mat-card-header>
+        <mat-card-title>Profile Information</mat-card-title>
+        <mat-card-subtitle
+          >Update your personal and contact details</mat-card-subtitle
+        >
+      </mat-card-header>
+      <mat-card-content>
+        <div class="profile-photo-section">
+          <img
+            class="profile-photo"
+            src="https://via.placeholder.com/100"
+            alt="Profile Photo"
+          />
+          <div class="photo-upload-container">
+            <input
+              id="photo-upload"
+              type="file"
+              (change)="onFileSelected($event)"
+              hidden
+            />
+            <button
+              mat-raised-button
+              color="primary"
+              type="button"
+              (click)="triggerFileUpload()"
+            >
+              Change Photo
+            </button>
+            <p class="photo-requirements">JPG or PNG, max 5MB</p>
+          </div>
+        </div>
+        <div class="form-grid">
+          <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Email Address</mat-label>
+            <input matInput type="email" formControlName="email" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            <input matInput type="tel" formControlName="phone" />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Location</mat-label>
+            <input matInput formControlName="location" />
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Security Section -->
+    <mat-card class="settings-card" formGroupName="security">
+      <mat-card-header>
+        <mat-card-title>Security Settings</mat-card-title>
+        <mat-card-subtitle>Manage your password</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="form-grid">
+        <mat-form-field appearance="fill">
+          <mat-label>Current Password</mat-label>
+          <input matInput type="password" formControlName="currentPassword" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>New Password</mat-label>
+          <input matInput type="password" formControlName="newPassword" />
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Confirm New Password</mat-label>
+          <input
+            matInput
+            type="password"
+            formControlName="confirmNewPassword"
+          />
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Notifications Section -->
+    <mat-card class="settings-card" formGroupName="notifications">
+      <mat-card-header>
+        <mat-card-title>Notification Preferences</mat-card-title>
+        <mat-card-subtitle
+          >Control your notification settings</mat-card-subtitle
+        >
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <div class="notification-text">
+              <p>Email Notifications</p>
+              <small>Receive application updates via email</small>
+            </div>
+            <mat-slide-toggle
+              formControlName="emailNotifications"
+              color="primary"
+            ></mat-slide-toggle>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item role="listitem">
+            <div class="notification-text">
+              <p>Interview Reminders</p>
+              <small>Alerts for upcoming interviews</small>
+            </div>
+            <mat-slide-toggle
+              formControlName="interviewReminders"
+              color="primary"
+            ></mat-slide-toggle>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item role="listitem">
+            <div class="notification-text">
+              <p>Application Deadlines</p>
+              <small>Reminders for application due dates</small>
+            </div>
+            <mat-slide-toggle
+              formControlName="applicationDeadlines"
+              color="primary"
+            ></mat-slide-toggle>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item role="listitem">
+            <div class="notification-text">
+              <p>Weekly Summary</p>
+              <small>Weekly job search progress report</small>
+            </div>
+            <mat-slide-toggle
+              formControlName="weeklySummary"
+              color="primary"
+            ></mat-slide-toggle>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Social Media Links Section -->
+    <mat-card class="settings-card" formGroupName="social">
+      <mat-card-header>
+        <mat-card-title>Social Media Profiles</mat-card-title>
+        <mat-card-subtitle>Link your professional profiles</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="form-grid">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>LinkedIn Profile</mat-label>
+          <input matInput type="url" formControlName="linkedin" />
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>GitHub Profile</mat-label>
+          <input matInput type="url" formControlName="github" />
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit">
+        Save Changes
+      </button>
+      <button mat-stroked-button color="warn" type="button">Cancel</button>
+    </div>
+  </form>
+</div>

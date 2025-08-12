@@ -1,0 +1,20 @@
+<main class="main-layout">
+  <div class="left-div">
+    <app-sidebar></app-sidebar>
+  </div>
+
+  <div class="right-div">
+    <div class="dashboard-header">
+      <div class="meanu-bar">
+        <ng-icon name="lucideMenu" size="28" class="meanu-icon" onclick="" />
+        <app-search-bar></app-search-bar>
+      </div>
+
+      <mat-icon matBadge="15" class="notification">
+        <ng-icon name="lucideBell" size="28" />
+      </mat-icon>
+    </div>
+
+    <router-outlet></router-outlet>
+  </div>
+</main>

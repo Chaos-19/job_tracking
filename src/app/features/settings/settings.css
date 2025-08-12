@@ -1,0 +1,138 @@
+:root {
+  --primary-color: #3f51b5;
+  --header-bg-color: #283593;
+  --background-color: #fafafa;
+}
+
+.settings-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.settings-header {
+  background: #1e3a8a;
+  color: white;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.4rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.settings-header .header-icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.settings-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.settings-header p {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.settings-card {
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+}
+
+.profile-photo-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+}
+
+.photo-upload-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.photo-requirements {
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.notification-text {
+  flex-grow: 1;
+}
+
+.notification-text p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.notification-text small {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.75rem;
+}
+
+::ng-deep .mat-mdc-list-item-unscoped-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1.5rem 0;
+}
+
+@media (max-width: 600px) {
+  .settings-container {
+    padding: 0 1rem;
+  }
+
+  .settings-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-photo-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

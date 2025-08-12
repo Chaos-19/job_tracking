@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.recent-activity-container {
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+}
+
+.building-icon {
+  background: #1e3a8a;
+  color: white;
+  padding: 8px;
+  border-radius: 13px;
+}
+
+.top {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  width: 100%;
+}
+.top > .head {
+  display: flex;
+
+  align-items: center;
+}
+.top h5 {
+  font-size: 14px;
+  color: #111827;
+  font-weight: 500;
+}
+.top h6 {
+  font-size: 14px;
+  color: #374151;
+  font-weight: 450;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  font-size: 12px;
+}
+
+.bottom > div {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  color: #6b7280;
+}

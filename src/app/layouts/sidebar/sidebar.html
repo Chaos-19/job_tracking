@@ -1,0 +1,20 @@
+<aside class="sidebar">
+  <div class="sider-header">
+    <ng-icon name="lucideLayoutDashboard" size="24" />
+    <h1>JobTracker</h1>
+  </div>
+  <nav class="sidebar-nav">
+    <ul>
+      <li class="sidebar-item">
+        @for(item of sidebarNavigation; track item.name) {
+
+        <a [routerLink]="item.href" class="sidebar-link" class="nav-item">
+          <ng-icon [name]="item.icon" size="24" />
+          {{ item.name }}
+        </a>
+
+        }
+      </li>
+    </ul>
+  </nav>
+</aside>

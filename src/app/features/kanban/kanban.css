@@ -1,0 +1,190 @@
+.kanban-container {
+  padding: 20px;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.board-header h1 {
+  font-size: 24px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.add-job-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
+}
+
+.add-job-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+.board-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.column {
+  background-color: #f8fafc;
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 500px;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 2px solid;
+  margin-bottom: 20px;
+}
+
+.column-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.job-count {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.job-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  cursor: move;
+  transition: all 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.job-card-content {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: start;
+}
+
+.job-type-icon {
+  font-size: 24px;
+  color: #7f8c8d;
+}
+
+.job-details {
+  overflow: hidden;
+}
+
+.job-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 4px 0;
+}
+
+.company-name {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin: 0 0 8px 0;
+}
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+  color: #95a5a6;
+}
+
+.job-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.options-btn {
+  background: none;
+  border: none;
+  color: #bdc3c7;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.add-job-box {
+  border: 2px dashed #bdc3c7;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #7f8c8d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-job-box:hover {
+  border-color: #3498db;
+  color: #3498db;
+}
+
+.cdk-drag-preview {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.3;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms ease;
+}
+
+.job-list.cdk-drop-list-dragging .job-card:not(.cdk-drag-placeholder) {
+  transition: transform 250ms ease;
+}
+
+@media (max-width: 768px) {
+  .board-columns {
+    grid-template-columns: 1fr;
+  }
+  
+  .column {
+    margin-bottom: 20px;
+  }
+}
